@@ -5,7 +5,9 @@ use Livewire\Volt\Volt;
 use App\Livewire\CompanySetting;
 use App\Livewire\SalaryComponent;
 use App\Livewire\TaxSetting;
+use App\Http\Controllers\DashboardController;
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 
