@@ -1,4 +1,9 @@
-// import './bootstrap';
-import '../../vendor/masmerise/livewire-toaster/resources/js'; // 👈
+document.addEventListener("livewire:init", () => {
+    Livewire.on("info-updated", (event) => {
+        location.reload();
+    });
 
-// other app stuff...
+    Livewire.on("info-new", (event) => {
+        location.reload();
+    });
+});

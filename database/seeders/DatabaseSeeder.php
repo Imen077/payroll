@@ -2,31 +2,32 @@
 
 namespace Database\Seeders;
 
+use App\Models\CompanySetting;
+use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\CompanySetting;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      */
     public function run(): void
     {
-    User::factory()->create([
-        'name' => 'Admin Danish',
-        'email' => 'faeyza@admin.com',
-        'password' => bcrypt('1234567890'),
-        'role' => 'admin',
-    ]);
+        // User::factory(10)->create();
 
-    CompanySetting::factory()->create([
-        'name' => 'PT. Freeport Indonesia',
-        'description' => 'Membangun semua bidang usaha yang ada di dunia ini',
-        'address' => 'Jl. Raya No. 1 Jakarta Pusat Indonesia 12345 ',
-        'phone' => '+62 123 4567 890',
-        'value' => 'Berani Berubah untuk Maju Bersama',
-    ]);
+        User::factory()->create([
+            'name' => 'atmin',
+            'email' => 'admin@komcad.com',
+            'password' => bcrypt('1234567890'),
+            'is_admin' => True,
+        ]);
+
+        CompanySetting::factory()->create([
+            'name' => 'PT Rumput Abdullah Jaya Abadi',
+            'description' => 'Abdullah Yasir\'s very successful feed business',
+            'address' => 'Balls st, Bollocks ave, 1298',
+            'phone' => '+62 23028398289392',
+        ]);
     }
 }

@@ -6,59 +6,19 @@ use Illuminate\Http\Request;
 
 class CompanySettingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // Example method to update company settings
+    public function update(Request $request)
     {
-        //
-    }
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:255',
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        // Logic to update company settings in the database
+        // You can use a model to update the data
+        // return redirect()->route('company-settings.show')->with('success', 'Company settings updated successfully.');
     }
 }

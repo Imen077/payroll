@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
-
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -23,8 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
-        'employee_id',
+        'is_admin',
+        'employee_id', // If stored here
     ];
 
     /**
@@ -61,9 +60,11 @@ class User extends Authenticatable
             ->implode('');
     }
 
-
+    /**
+     * Get the employee associated with the user.
+     */
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'employee_id');
+        return $this->hasOne(Employee::class, 'id', 'employee_id');
     }
 }
